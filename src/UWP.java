@@ -30,15 +30,15 @@ public class UWP {
 	}
 
 	public void setNavalBase(boolean data) {
-		this.navalBase = valdiateIntData(data);
+		this.navalBase = data;
 	}	
 
 	public void setScoutBase(boolean data) {
-		this.scoutBase = valdiateIntData(data);
+		this.scoutBase = data;
 	}		
 
 	public void setGasGiant(boolean data) {
-		this.gasGiant = valdiateIntData(data);
+		this.gasGiant = data;
 	}		
 
 	public void setSize(int data) {
@@ -96,5 +96,13 @@ public class UWP {
 			result = MAXIMUM;
 		}
 		return result;
+	}
+
+	public char getStarport() {
+		return this.starport;
+	}
+
+	public Integer getAtmosphere() {
+		return this.atmosphere;
 	}
 }
