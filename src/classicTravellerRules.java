@@ -1,6 +1,23 @@
 
 enum TravelZones {
-	GREEN, AMBER, RED
+	GREEN {
+		@Override
+		public String toString() {
+			return "Green";
+		}
+	},
+	AMBER {
+		@Override
+		public String toString() {
+			return "Amber";
+		}
+	},
+	RED {
+		@Override
+		public String toString() {
+			return "Red";
+		}
+	}
 }
 
 public class classicTravellerRules {
@@ -142,10 +159,10 @@ public class classicTravellerRules {
 		int techLevel = roll1d6;
 		int dieModifier = 0;
 
-		if(uwp.getPopulation()==0) {
+		if (uwp.getPopulation() == 0) {
 			return 0;
 		}
-		
+
 		switch (uwp.getStarport()) {
 		case 'A':
 			dieModifier = +6;
@@ -181,30 +198,30 @@ public class classicTravellerRules {
 		techLevel = techLevel + dieModifier;
 		dieModifier = 0;
 
-		if(uwp.getHydrographics()==9) {
+		if (uwp.getHydrographics() == 9) {
 			dieModifier = +1;
 		}
-		if(uwp.getHydrographics()==10) {
+		if (uwp.getHydrographics() == 10) {
 			dieModifier = +2;
 		}
-		
+
 		techLevel = techLevel + dieModifier;
-		dieModifier = 0;		
-		
-		if(uwp.getPopulation()<6 && uwp.getPopulation()>0) {
+		dieModifier = 0;
+
+		if (uwp.getPopulation() < 6 && uwp.getPopulation() > 0) {
 			dieModifier = +1;
 		}
-		if(uwp.getPopulation()==9) {
+		if (uwp.getPopulation() == 9) {
 			dieModifier = +1;
 		}
-		if(uwp.getPopulation()==10) {
+		if (uwp.getPopulation() == 10) {
 			dieModifier = +2;
 		}
-		
+
 		techLevel = techLevel + dieModifier;
-		dieModifier = 0;		
-		
-		switch(uwp.getGovernment()) {
+		dieModifier = 0;
+
+		switch (uwp.getGovernment()) {
 		case 0:
 			dieModifier = +1;
 			break;
@@ -216,7 +233,7 @@ public class classicTravellerRules {
 			break;
 		}
 		techLevel = techLevel + dieModifier;
-		
+
 		return techLevel;
 	}
 

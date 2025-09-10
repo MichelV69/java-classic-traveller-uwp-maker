@@ -18,37 +18,38 @@ public class main {
 	public static void main(String[] args) {
 		// Create a Blank UWP
 		UWP braveNewWorld = new UWP();
-		
+
 		// Capture System Contents
-		braveNewWorld.setStarport(classicTravellerRules.rollRandomStarport()); 
+		braveNewWorld.setStarport(classicTravellerRules.rollRandomStarport());
 		braveNewWorld.setNavalBase(classicTravellerRules.rollForNavalBase(braveNewWorld.getStarport()));
 		braveNewWorld.setScoutBase(classicTravellerRules.rollForScoutBase(braveNewWorld.getStarport()));
 		braveNewWorld.setGasGiant(classicTravellerRules.rollForGasGiant());
-		
+
 		// Decide on Travel Zone
 		braveNewWorld.setTravelZone(ctHomebrew.rollForTravelZone(braveNewWorld.getStarport()));
-		
+
 		// Determine Planetary Size
-		braveNewWorld.setSize(Dice.roll2d6()-2);
-		
+		braveNewWorld.setSize(Dice.roll2d6() - 2);
+
 		// Determine Planetary Atmosphere
 		braveNewWorld.setAtmosphere(classicTravellerRules.createAtmosphere(Dice.roll2d6(), braveNewWorld.getSize()));
-		
+
 		// Hydrographic Percentage
-		braveNewWorld.setHydrographics(classicTravellerRules.computeHydrographics(Dice.roll2d6(), braveNewWorld.getSize(), braveNewWorld.getAtmosphere()));
-		
+		braveNewWorld.setHydrographics(classicTravellerRules.computeHydrographics(Dice.roll2d6(),
+				braveNewWorld.getSize(), braveNewWorld.getAtmosphere()));
+
 		// Population Level
-		braveNewWorld.setPopulation(Dice.roll2d6()-2);
-		
+		braveNewWorld.setPopulation(Dice.roll2d6() - 2);
+
 		// Planetary Government Type
-		braveNewWorld.setGovernmentType(Dice.roll2d6()-7+braveNewWorld.getPopulation());
-		
+		braveNewWorld.setGovernmentType(Dice.roll2d6() - 7 + braveNewWorld.getPopulation());
+
 		// Law Level
-		braveNewWorld.setLawLevel(Dice.roll2d6()-7+braveNewWorld.getGovernment());
-		
+		braveNewWorld.setLawLevel(Dice.roll2d6() - 7 + braveNewWorld.getGovernment());
+
 		// Technological Level
 		braveNewWorld.setTechnologicalLevel(classicTravellerRules.computeTL(Dice.roll1d6(), braveNewWorld));
-		
+
 		// Present formatted result to the User
 		System.out.println(braveNewWorld.toString());
 	}

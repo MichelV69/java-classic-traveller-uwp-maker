@@ -129,20 +129,40 @@ public class UWP {
 	public String toString() {
 		String output = "";
 		String uwp = "";
-		
-		output = "--------------------------------------------\n";
-		output += String.format("%-21s%13s\n","Subsector:", "Hex:");
-		output += "MAIN WORLD NAME: \n";
-		output += "--------------------------------------------\n";
-		
-		
-		uwp = String.format("UWP: %s-%X%X%X%X%X%X-%X", this.starport, 
-				this.size, this.atmosphere, this.hydrographics, 
-				this.population, this.governmentType, this.lawLevel,
-				this.technologicalLevel);
-		output += String.format("%-21s%13s\n",uwp, "bases:");
-		
+		String bases = "";
+		String gasGiants = "";
+
+		output = "-----------------------------------------------------\n";
+		output += String.format("%-33s%-33s\n\n", "Subsector:", "Hex:");
+		output += "MAIN WORLD NAME: \n\n";
+		output += "-----------------------------------------------------\n";
+
+		uwp = String.format("UWP: %s-%X%X%X%X%X%X-%X", this.starport, this.size, this.atmosphere, this.hydrographics,
+				this.population, this.governmentType, this.lawLevel, this.technologicalLevel);
+
+		output += String.format("%-33s%-33s\n", uwp, this.travelZoneCode.toString() + " Zone");
+
+		if (this.navalBase) {
+			bases += "Naval";
+		}
+		if (this.scoutBase) {
+			if (bases.length() > 1) {
+				bases += " & ";
+			}
+			bases += "Scout";
+		}
+		if (bases.length() < 1) {
+			bases += "(none)";
+		}
+
+		if (this.gasGiant) {
+			gasGiants = "Yes";
+		} else {
+			gasGiants = "(none)";
+		}
+		output += String.format("%-33s%-33s\n", "Bases: " + bases, "Gas Giant: " + gasGiants);
+
 		return output;
 	}
-	
+
 }
