@@ -126,11 +126,61 @@ public class UWP {
 		return this.hydrographics;
 	}
 
+	private boolean isBetween(int test, int low, int high) {
+		return (low <= test && test <= high);
+	}
+
+	public String isAgricultural() {
+		String text = "";
+
+		if (isBetween(this.atmosphere, 4, 9) && isBetween(this.hydrographics, 4, 8)
+				&& isBetween(this.population, 5, 7)) {
+			text = "Agricultural";
+		}
+
+		if (this.atmosphere <= 3 && this.hydrographics <= 3 && this.population >= 6) {
+			text = "Non-Agricultural";
+		}
+
+		return text;
+	}
+
+	public String isIndustrial() {
+		String text = "";
+
+		if (this.population >= 9
+				&& (isBetween(this.atmosphere, 0, 4) || this.atmosphere == 7 || this.atmosphere == 9)) {
+			text = "Industrial";
+		}
+
+		if (this.population <= 6) {
+			text = "Non-Industrial";
+		}
+
+		return text;
+	}
+
+	public String isRich() {
+		String text = "";
+
+		if ((this.atmosphere == 6 || this.atmosphere == 8) && isBetween(this.population, 6, 8)
+				&& isBetween(this.governmentType, 4, 9)) {
+			text = "Rich";
+		}
+
+		if (this.hydrographics <= 3 && isBetween(this.atmosphere, 2, 5)) {
+			text = "Poor";
+		}
+
+		return text;
+	}
+
 	public String toString() {
 		String output = "";
 		String uwp = "";
 		String bases = "";
 		String gasGiants = "";
+		String tcList = "";
 
 		output = "-----------------------------------------------------\n";
 		output += String.format("%-33s%-33s\n\n", "Subsector:", "Hex:");
@@ -162,6 +212,11 @@ public class UWP {
 		}
 		output += String.format("%-33s%-33s\n", "Bases: " + bases, "Gas Giant: " + gasGiants);
 
+		tcList += isRich() + isAgricultural() + isIndustrial();
+		if (tcList.length() < 1) {
+			tcList = "(none)";
+		}
+		output += "Trade Classifications: " + tcList;
 		return output;
 	}
 
