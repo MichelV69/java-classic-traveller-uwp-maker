@@ -126,4 +126,23 @@ public class UWP {
 		return this.hydrographics;
 	}
 
+	public String toString() {
+		String output = "";
+		String uwp = "";
+		
+		output = "--------------------------------------------\n";
+		output += String.format("%-21s%13s\n","Subsector:", "Hex:");
+		output += "MAIN WORLD NAME: \n";
+		output += "--------------------------------------------\n";
+		
+		
+		uwp = String.format("UWP: %s-%X%X%X%X%X%X-%X", this.starport, 
+				this.size, this.atmosphere, this.hydrographics, 
+				this.population, this.governmentType, this.lawLevel,
+				this.technologicalLevel);
+		output += String.format("%-21s%13s\n",uwp, "bases:");
+		
+		return output;
+	}
+	
 }

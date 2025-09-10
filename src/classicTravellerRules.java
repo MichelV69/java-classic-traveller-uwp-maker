@@ -161,7 +161,7 @@ public class classicTravellerRules {
 			break;
 		}
 
-		techLevel = techLevel - dieModifier;
+		techLevel = techLevel + dieModifier;
 		dieModifier = 0;
 
 		if (uwp.getSize() < 1) {
@@ -171,14 +171,14 @@ public class classicTravellerRules {
 			dieModifier = +1;
 		}
 
-		techLevel = techLevel - dieModifier;
+		techLevel = techLevel + dieModifier;
 		dieModifier = 0;
 
 		if (uwp.getAtmosphere() < 4 || uwp.getAtmosphere() > 9) {
 			dieModifier = +1;
 		}
 
-		techLevel = techLevel - dieModifier;
+		techLevel = techLevel + dieModifier;
 		dieModifier = 0;
 
 		if(uwp.getHydrographics()==9) {
@@ -188,7 +188,7 @@ public class classicTravellerRules {
 			dieModifier = +2;
 		}
 		
-		techLevel = techLevel - dieModifier;
+		techLevel = techLevel + dieModifier;
 		dieModifier = 0;		
 		
 		if(uwp.getPopulation()<6 && uwp.getPopulation()>0) {
@@ -201,7 +201,7 @@ public class classicTravellerRules {
 			dieModifier = +2;
 		}
 		
-		techLevel = techLevel - dieModifier;
+		techLevel = techLevel + dieModifier;
 		dieModifier = 0;		
 		
 		switch(uwp.getGovernment()) {
@@ -215,7 +215,7 @@ public class classicTravellerRules {
 			dieModifier = -2;
 			break;
 		}
-		techLevel = techLevel - dieModifier;
+		techLevel = techLevel + dieModifier;
 		
 		return techLevel;
 	}

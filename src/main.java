@@ -50,7 +50,7 @@ public class main {
 		braveNewWorld.setTechnologicalLevel(classicTravellerRules.computeTL(Dice.roll1d6(), braveNewWorld));
 		
 		// Present formatted result to the User
-		
+		System.out.println(braveNewWorld.toString());
 	}
 
 }
