@@ -14,7 +14,11 @@ public class ctHomebrew {
 			dieModifier = -1;
 		}
 
-		totalRoll = classicTravellerRules.roll2d6() + dieModifier;
+		if (starPort == 'X') {
+			dieModifier = +2;
+		}
+		
+		totalRoll = Dice.roll2d6() + dieModifier;
 
 		switch (totalRoll) {
 		case 10:
@@ -22,6 +26,8 @@ public class ctHomebrew {
 			localZone = TravelZones.AMBER;
 			break;
 		case 12:
+		case 13:
+		case 14:
 			localZone = TravelZones.RED;
 			break;
 		default:

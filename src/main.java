@@ -12,9 +12,8 @@
 public class main {
 
 	/*
-	 * handles the primary program flow, including the creation of class
-	 *   instances, recording generated data, and presenting formated output
-	 *   to the User.
+	 * handles the primary program flow, including the creation of class instances,
+	 * recording generated data, and presenting formated output to the User.
 	 */
 	public static void main(String[] args) {
 		// Create a Blank UWP
@@ -30,18 +29,25 @@ public class main {
 		braveNewWorld.setTravelZone(ctHomebrew.rollForTravelZone(braveNewWorld.getStarport()));
 		
 		// Determine Planetary Size
+		braveNewWorld.setSize(Dice.roll2d6()-2);
 		
 		// Determine Planetary Atmosphere
+		braveNewWorld.setAtmosphere(classicTravellerRules.createAtmosphere(Dice.roll2d6(), braveNewWorld.getSize()));
 		
 		// Hydrographic Percentage
+		braveNewWorld.setHydrographics(classicTravellerRules.computeHydrographics(Dice.roll2d6(), braveNewWorld.getSize(), braveNewWorld.getAtmosphere()));
 		
 		// Population Level
+		braveNewWorld.setPopulation(Dice.roll2d6()-2);
 		
 		// Planetary Government Type
+		braveNewWorld.setGovernmentType(Dice.roll2d6()-7+braveNewWorld.getPopulation());
 		
 		// Law Level
+		braveNewWorld.setLawLevel(Dice.roll2d6()-7+braveNewWorld.getGovernment());
 		
 		// Technological Level
+		braveNewWorld.setTechnologicalLevel(classicTravellerRules.computeTL(Dice.roll1d6(), braveNewWorld));
 		
 		// Present formatted result to the User
 		

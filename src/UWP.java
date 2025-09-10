@@ -110,4 +110,20 @@ public class UWP {
 		this.travelZoneCode = travelZone;
 	}
 
+	public int getSize() {
+		return this.size;
+	}
+
+	public int getPopulation() {
+		return this.population;
+	}
+
+	public int getGovernment() {
+		return this.governmentType;
+	}
+
+	public int getHydrographics() {
+		return this.hydrographics;
+	}
+
 }
