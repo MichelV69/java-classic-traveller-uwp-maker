@@ -3,6 +3,8 @@
  * Includes validations of SET inputs to prevent bogus content.
  */
 
+import java.util.ArrayList;
+
 public class UWP {
 
 	private char starport;
@@ -175,6 +177,46 @@ public class UWP {
 		return text;
 	}
 
+	public String isWaterWorld() {
+		String text = "";
+		if (this.hydrographics == 10) {
+			text = "Water World";
+		}
+		return text;
+	}
+
+	public String isDesertWorld() {
+		String text = "";
+		if (this.hydrographics == 0 && this.atmosphere >= 2) {
+			text = "Desert World";
+		}
+		return text;
+	}
+
+	public String isVaccumWorld() {
+		String text = "";
+		if (this.atmosphere == 0) {
+			text = "Vaccum World";
+		}
+		return text;
+	}
+
+	public String isAsteroidColony() {
+		String text = "";
+		if (this.size == 0) {
+			text = "Asteroid Colony";
+		}
+		return text;
+	}
+
+	public String isIceCapped() {
+		String text = "";
+		if ((this.atmosphere == 0 || this.atmosphere == 1) && this.hydrographics >= 1) {
+			text = "has Polar Ice-caps";
+		}
+		return text;
+	}
+
 	public String toString() {
 		String output = "";
 		String uwp = "";
@@ -212,7 +254,22 @@ public class UWP {
 		}
 		output += String.format("%-33s%-33s\n", "Bases: " + bases, "Gas Giant: " + gasGiants);
 
-		tcList += isRich() + isAgricultural() + isIndustrial();
+		ArrayList<String> tradeCategories = new ArrayList<String>();
+		tradeCategories.add(isRich());
+		tradeCategories.add(isAgricultural());
+		tradeCategories.add(isIndustrial());
+		tradeCategories.add(isWaterWorld());
+		tradeCategories.add(isDesertWorld());
+		tradeCategories.add(isVaccumWorld());
+		tradeCategories.add(isIceCapped());
+		tradeCategories.add(isAsteroidColony());
+		
+		for (String tc : tradeCategories) {
+		      if(tc.length()>1) {
+		    	  tcList += "["+tc+"] ";  
+		      };
+		    }
+		
 		if (tcList.length() < 1) {
 			tcList = "(none)";
 		}
