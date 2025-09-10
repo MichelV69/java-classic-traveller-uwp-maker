@@ -20,10 +20,17 @@ public class UWP {
 	private int governmentType;
 	private int technologicalLevel;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	private int getRandomNumber(int min, int max) {
+	    return (int) ((Math.random() * (max - min)) + min);
 	}
+	
+	private int roll1d6() {
+		return getRandomNumber(1, 6);
+	}
+	
+	private int roll2d6() {
+		return getRandomNumber(1, 6)+getRandomNumber(1, 6);
+	}	
 
 	public void setStarport(char data) {
 		this.starport = validateStarportData(data);
@@ -104,5 +111,37 @@ public class UWP {
 
 	public Integer getAtmosphere() {
 		return this.atmosphere;
+	}
+
+	public void setRandomStarport() {
+		this.starport = 'X';
+		switch (roll2d6()) {
+		case 2:
+		case 3:
+		case 4:			
+			this.starport = 'A';
+			break;
+		case 5:
+		case 6:
+			this.starport = 'B';
+			break;			
+		case 7:
+		case 8:
+			this.starport = 'C';
+			break;
+		case 9:
+			this.starport = 'D';
+			break;
+		case 10:
+		case 11:
+			this.starport = 'E';
+			break;			
+		case 12:
+			this.starport = 'F';
+			break;	
+		default:
+			this.starport = 'z';
+		}
+
 	}
 }

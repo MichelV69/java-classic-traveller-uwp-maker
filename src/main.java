@@ -18,8 +18,10 @@ public class main {
 	 */
 	public static void main(String[] args) {
 		// Create a Blank UWP
+		UWP braveNewWorld = new UWP();
 		
 		// Capture System Contents
+		braveNewWorld.setRandomStarport();
 
 		// Decide on Travel Zone
 		
