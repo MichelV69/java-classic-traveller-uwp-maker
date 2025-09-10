@@ -21,8 +21,11 @@ public class main {
 		UWP braveNewWorld = new UWP();
 		
 		// Capture System Contents
-		braveNewWorld.setRandomStarport();
-
+		braveNewWorld.setStarport(classicTravellerRules.rollRandomStarport()); 
+		braveNewWorld.setNavalBase(classicTravellerRules.rollForNavalBase(braveNewWorld.getStarport()));
+		braveNewWorld.setScoutBase(classicTravellerRules.rollForScoutBase(braveNewWorld.getStarport()));
+		braveNewWorld.setGasGiant(classicTravellerRules.rollForGasGiant());
+		
 		// Decide on Travel Zone
 		
 		// Determine Planetary Size
