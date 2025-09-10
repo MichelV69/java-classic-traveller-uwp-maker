@@ -9,6 +9,7 @@ public class UWP {
 	private boolean navalBase;
 	private boolean scoutBase;
 	private boolean gasGiant;
+	private TravelZones travelZoneCode;
 	private int size;
 	private int atmosphere;
 	private int hydrographics;
@@ -103,6 +104,10 @@ public class UWP {
 
 	public boolean getScoutBase() {
 		return this.scoutBase;
+	}
+
+	public void setTravelZone(TravelZones travelZone) {
+		this.travelZoneCode = travelZone;
 	}
 
 }

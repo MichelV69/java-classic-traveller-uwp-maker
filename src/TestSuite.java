@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UWP_Test {
+class TestSuite {
 
 	@DisplayName("Validation tests for typical set requests")
 	@Test
@@ -80,5 +80,21 @@ class UWP_Test {
 		assertEquals(shouldBe, noGG > 1);		
 	}
 	
+	@Test 
+	void homebrewTravelZone_isValid() {
+		boolean shouldBe = true;
+		boolean shouldNotBe = false;
+		char starportCode = 'A';		
+		
+		for (int i = 0; i < 999; i++) {
+			assertEquals(shouldNotBe, ctHomebrew.rollForTravelZone(starportCode) == TravelZones.RED);
+			assertEquals(shouldNotBe, ctHomebrew.rollForTravelZone(starportCode) == TravelZones.AMBER);
+		}
+		
+		starportCode = 'B';
+		for (int i = 0; i < 999; i++) {
+			assertEquals(shouldNotBe, ctHomebrew.rollForTravelZone(starportCode) == TravelZones.RED);
+		}
+	}
 	
 }

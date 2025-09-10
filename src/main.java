@@ -27,6 +27,7 @@ public class main {
 		braveNewWorld.setGasGiant(classicTravellerRules.rollForGasGiant());
 		
 		// Decide on Travel Zone
+		braveNewWorld.setTravelZone(ctHomebrew.rollForTravelZone(braveNewWorld.getStarport()));
 		
 		// Determine Planetary Size
 		

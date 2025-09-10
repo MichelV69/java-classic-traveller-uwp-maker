@@ -1,10 +1,12 @@
 
+enum TravelZones {
+  GREEN,
+  AMBER,
+  RED
+}
+
+
 public class classicTravellerRules {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 	// simple basic min/max random number roller
 	private static int getRandomNumber(int min, int max) {
@@ -18,7 +20,7 @@ public class classicTravellerRules {
 	}
 
 	// simulate the roll of two six-sided dice
-	private static int roll2d6() {
+	public static int roll2d6() {
 		return getRandomNumber(1, 6)+getRandomNumber(1, 6);
 	}		
 
