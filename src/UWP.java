@@ -128,10 +128,14 @@ public class UWP {
 		return this.hydrographics;
 	}
 
+	/*
+	 * Code DRYer. Handles repetitive less-than and greater-than boolean tests
+	 */
 	private boolean isBetween(int test, int low, int high) {
 		return (low <= test && test <= high);
 	}
 
+	// the traveller book, chart from pp85
 	public String isAgricultural() {
 		String text = "";
 
@@ -147,6 +151,7 @@ public class UWP {
 		return text;
 	}
 
+	// the traveller book, chart from pp85
 	public String isIndustrial() {
 		String text = "";
 
@@ -162,6 +167,7 @@ public class UWP {
 		return text;
 	}
 
+	// the traveller book, chart from pp85
 	public String isRich() {
 		String text = "";
 
@@ -177,6 +183,7 @@ public class UWP {
 		return text;
 	}
 
+	// the traveller book, chart from pp85
 	public String isWaterWorld() {
 		String text = "";
 		if (this.hydrographics == 10) {
@@ -185,6 +192,7 @@ public class UWP {
 		return text;
 	}
 
+	// the traveller book, chart from pp85
 	public String isDesertWorld() {
 		String text = "";
 		if (this.hydrographics == 0 && this.atmosphere >= 2) {
@@ -193,6 +201,7 @@ public class UWP {
 		return text;
 	}
 
+	// the traveller book, chart from pp85
 	public String isVaccumWorld() {
 		String text = "";
 		if (this.atmosphere == 0) {
@@ -201,6 +210,7 @@ public class UWP {
 		return text;
 	}
 
+	// the traveller book, chart from pp85
 	public String isAsteroidColony() {
 		String text = "";
 		if (this.size == 0) {
@@ -209,6 +219,7 @@ public class UWP {
 		return text;
 	}
 
+	// the traveller book, chart from pp85
 	public String isIceCapped() {
 		String text = "";
 		if ((this.atmosphere == 0 || this.atmosphere == 1) && this.hydrographics >= 1) {
@@ -217,6 +228,10 @@ public class UWP {
 		return text;
 	}
 
+	/*
+	 * provide meaningful formated output to the user that is immediately valuable
+	 * at the gaming table.
+	 */
 	public String toString() {
 		String output = "";
 		String uwp = "";
@@ -254,6 +269,9 @@ public class UWP {
 		}
 		output += String.format("%-33s%-33s\n", "Bases: " + bases, "Gas Giant: " + gasGiants);
 
+		// throw the results of trade-category self-tests into an array to
+		// make it easier to ignore nulls and format the total output
+		// neatly.
 		ArrayList<String> tradeCategories = new ArrayList<String>();
 		tradeCategories.add(isRich());
 		tradeCategories.add(isAgricultural());
@@ -263,18 +281,26 @@ public class UWP {
 		tradeCategories.add(isVaccumWorld());
 		tradeCategories.add(isIceCapped());
 		tradeCategories.add(isAsteroidColony());
-		
+
 		for (String tc : tradeCategories) {
-		      if(tc.length()>1) {
-		    	  tcList += "["+tc+"] ";  
-		      };
-		    }
-		
+			if (tc.length() > 1) {
+				tcList += "[" + tc + "] ";
+			}
+			;
+		}
+
 		if (tcList.length() < 1) {
 			tcList = "(none)";
 		}
 		output += "Trade Classifications: " + tcList;
+
+		output += "\n \n Details : \n" 
+		+ classicTravellerRules.LibraryData.uwp_Size(this.size) + "\n"
+		+ classicTravellerRules.LibraryData.uwp_Atmosphere(this.atmosphere) + " atmosphere.\n";
+		
+		// -------
 		return output;
 	}
+
 
 }

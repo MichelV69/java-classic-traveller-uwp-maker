@@ -237,4 +237,30 @@ public class classicTravellerRules {
 		return techLevel;
 	}
 
+	public static class LibraryData {
+		public static String uwp_Size(int index) {
+			return String.format("%d miles (%d km) diameter.", index *1000, index *1600);
+		}
+		
+		public static String uwp_Atmosphere(int index) {
+			switch(index) {
+			case 0: return "No";
+			case 1: return "Trace";
+			case 2: return "Very thin, tainted";
+			case 3: return "Very thin";
+			case 4: return "Thin, tainted";
+			case 5: return "Thin";
+			case 6: return "Standard";
+			case 7: return "Standard, tainted";
+			case 8: return "Dense";
+			case 9: return "Dense, tainted";
+			case 10: return "Exotic";
+			case 11: return "Corrosive";
+			case 12: return "Insideous";
+	
+			}
+			return "ERROR - should never reach this";
+		}
+	}
+	
 }
