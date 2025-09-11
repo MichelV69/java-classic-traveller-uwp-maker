@@ -145,7 +145,7 @@ public class classicTravellerRules {
 			break;
 		}
 
-		hydrographics = roll2d6 - 7 + worldSize;
+		hydrographics = roll2d6 - 7 + worldSize + dieModifier;
 
 		if (hydrographics < 0) {
 			hydrographics = 0;
@@ -237,6 +237,11 @@ public class classicTravellerRules {
 		return techLevel;
 	}
 
+	/*
+	 * Compartmentalizing purely narrative / "color" output / content into an inner
+	 * class. In the TTRPG, such information was called "Library Data", hence the
+	 * class name.
+	 */
 	public static class LibraryData {
 		public static String uwp_Size(int size) {
 			return String.format("%d miles (%d km) diameter.", size * 1000, size * 1600);
@@ -284,30 +289,88 @@ public class classicTravellerRules {
 
 		}
 
-		public static String uwp_starport(char starport) {
+		public static String uwp_Starport(char starport) {
 			switch (starport) {
 			case 'A':
-				return "Excellent quality installation.\n"
-						+ "Refined fuel available. Annual maintenance overhaul available. Shipyard capable of constructing starships and "
-						+ "non-starships present. Naval base and/or scout base may be present";
+				return "Excellent quality installation."
+						+ "\n\t Refined fuel available. \n\t Annual maintenance overhaul available. \n\t Shipyard capable of constructing starships and "
+						+ "non-starships present. \n\t Naval base and/or scout base may be present";
 			case 'B':
-				return "Good quality installation.\n"
-						+ "Refined fuel available. Annual maintenance overhaul available. Shipyard capable of constructing non-starships "
-						+ "present. Naval base and/or scout base may be present";
+				return "Good quality installation."
+						+ "\n\t Refined fuel available. \n\t Annual maintenance overhaul available. \n\t Shipyard capable of constructing non-starships "
+						+ "present. \n\t Naval base and/or scout base may be present";
 			case 'C':
-				return "Routine quality installation.\n"
-						+ "Only unrefined fuel available. Reasonable repair facilities present. Scout base may be present.";
+				return "Routine quality installation."
+						+ "\n\t Only unrefined fuel available. \n\t Reasonable repair facilities present. \n\t Scout base may be present.";
 			case 'D':
-				return "Poor quality installation.\n"
-						+ "Only unrefined fuel available. No repair or shipyard facilities present. Scout base may be present";
+				return "Poor quality installation."
+						+ "\n\t Only unrefined fuel available. \n\t No repair or shipyard facilities present. \n\t Scout base may be present";
 			case 'E':
-				return "Frontier Installation.\n"
-						+ "Essentially a marked spot of bedrock with no fuel, facilities, or bases present";
+				return "Frontier Installation."
+						+ "\n\t Essentially a marked spot of bedrock with no fuel, facilities, or bases present";
 			case 'X':
 				return "No starport. No provision is made for any ship landings.";
 			}
 			return "ERROR02 - should never reach this";
 		}
+
+		public static String uwp_Population(int population) {
+			switch (population) {
+			case 0:
+				return "No permanent inhabitants.";
+			case 1:
+				return "Tens to dozens of permanent inhabitants.";
+			case 2:
+				return "Hundreds of inhabitants.";
+			case 3:
+				return "Thousands of inhabitants. Possibly multiple permanent settlements.";
+			case 4:
+				return "Tens of thousands of inhabitants and multiple permanent settlements.";
+			case 5:
+				return "Hundreds of thousands. At least one major city.";
+			case 6:
+				return "Millions of inhabitants. Multiple major cities.";
+			case 7:
+				return "Tens of millions. At least one metropolis.";
+			case 8:
+				return "Hundreds of millions. Multiple metropoli.";
+			case 9:
+				return "Billions of inhabitants. Possible archologies.";
+			case 10:
+				return "Tens of billions. Multiple archologies.";
+
+			}
+			return "ERROR03 - should never reach this";
+		}
+
+		public static String uwp_LawLevel(int lawLevel) {
+			switch (lawLevel) {
+			case 0:
+				return "No prohibitions.";
+			case 1:
+				return "Body pistols undetectable by standard detectors, explosives (bombs, grenades), and poison gas prohibited.";
+			case 2:
+				return "Portable energy weapons (laser carbine, laser rifle) prohibited. Ship's gunnery not affected";
+			case 3:
+				return "Weapons of a strict military nature (machine guns, automatic rifles) prohibited.";
+			case 4:
+				return "Light assault weapons (submachineguns) prohibited.";
+			case 5:
+				return "Personal concealable firearms (such as pistols and revolvers) prohibited.";
+			case 6:
+				return "Most firearms (all except shotguns) prohibited. The carrying of any type of weapon openly is discouraged.";
+			case 7:
+				return "Shotguns are prohibited.";
+			case 8:
+				return "Long bladed weapons (all but daggers) are controlled, and open possession is prohibited.";
+			case 9:
+				return "Possession of any weapon outside one's residence is prohibited";
+			case 10:
+				return "Possession of any weapon is prohibited.";
+			}
+			return "ERROR04 - should never reach this";
+		}
+
 	}
 
 }

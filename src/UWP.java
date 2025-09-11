@@ -296,11 +296,14 @@ public class UWP {
 
 		// build an array to loop for output of the planet Library Data details
 		ArrayList<String> uwpLibraryData = new ArrayList<String>();
-		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_starport(this.starport));
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Starport(this.starport));
 
 		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Size(this.size));
 		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Atmosphere(this.atmosphere) + " atmosphere.");
 		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Hydrographics(this.hydrographics));
+
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Population(this.population));
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_LawLevel(this.lawLevel));
 
 		output += "\n \n Details :";
 		for (String ld : uwpLibraryData) {

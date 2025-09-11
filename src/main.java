@@ -15,7 +15,7 @@ public class main {
 	 * handles the primary program flow, including the creation of class instances,
 	 * recording generated data, and presenting formated output to the User.
 	 */
-	public static void main(String[] args) {
+	public main() {
 		// Create a Blank UWP
 		UWP braveNewWorld = new UWP();
 
