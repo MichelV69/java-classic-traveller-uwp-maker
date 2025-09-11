@@ -294,13 +294,20 @@ public class UWP {
 		}
 		output += "Trade Classifications: " + tcList;
 
-		output += "\n \n Details : \n" 
-		+ classicTravellerRules.LibraryData.uwp_Size(this.size) + "\n"
-		+ classicTravellerRules.LibraryData.uwp_Atmosphere(this.atmosphere) + " atmosphere.\n";
-		
+		// build an array to loop for output of the planet Library Data details
+		ArrayList<String> uwpLibraryData = new ArrayList<String>();
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_starport(this.starport));
+
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Size(this.size));
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Atmosphere(this.atmosphere) + " atmosphere.");
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Hydrographics(this.hydrographics));
+
+		output += "\n \n Details :";
+		for (String ld : uwpLibraryData) {
+			output += "\n + " + ld;
+		}
 		// -------
 		return output;
 	}
-
 
 }

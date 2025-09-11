@@ -238,29 +238,76 @@ public class classicTravellerRules {
 	}
 
 	public static class LibraryData {
-		public static String uwp_Size(int index) {
-			return String.format("%d miles (%d km) diameter.", index *1000, index *1600);
+		public static String uwp_Size(int size) {
+			return String.format("%d miles (%d km) diameter.", size * 1000, size * 1600);
 		}
-		
-		public static String uwp_Atmosphere(int index) {
-			switch(index) {
-			case 0: return "No";
-			case 1: return "Trace";
-			case 2: return "Very thin, tainted";
-			case 3: return "Very thin";
-			case 4: return "Thin, tainted";
-			case 5: return "Thin";
-			case 6: return "Standard";
-			case 7: return "Standard, tainted";
-			case 8: return "Dense";
-			case 9: return "Dense, tainted";
-			case 10: return "Exotic";
-			case 11: return "Corrosive";
-			case 12: return "Insideous";
-	
+
+		public static String uwp_Atmosphere(int atmosphere) {
+			switch (atmosphere) {
+			case 0:
+				return "No";
+			case 1:
+				return "Trace";
+			case 2:
+				return "Very thin, tainted";
+			case 3:
+				return "Very thin";
+			case 4:
+				return "Thin, tainted";
+			case 5:
+				return "Thin";
+			case 6:
+				return "Standard";
+			case 7:
+				return "Standard, tainted";
+			case 8:
+				return "Dense";
+			case 9:
+				return "Dense, tainted";
+			case 10:
+				return "Exotic";
+			case 11:
+				return "Corrosive";
+			case 12:
+				return "Insideous";
+
 			}
-			return "ERROR - should never reach this";
+			return "ERROR01 - should never reach this";
+		}
+
+		public static String uwp_Hydrographics(int hydrographics) {
+			if (hydrographics == 0)
+				return "No free standing water on surface.";
+			if (hydrographics == 10)
+				return "No substantial land masses.";
+			return String.format("%d%c+ water-covered.", hydrographics * 10, '%');
+
+		}
+
+		public static String uwp_starport(char starport) {
+			switch (starport) {
+			case 'A':
+				return "Excellent quality installation.\n"
+						+ "Refined fuel available. Annual maintenance overhaul available. Shipyard capable of constructing starships and "
+						+ "non-starships present. Naval base and/or scout base may be present";
+			case 'B':
+				return "Good quality installation.\n"
+						+ "Refined fuel available. Annual maintenance overhaul available. Shipyard capable of constructing non-starships "
+						+ "present. Naval base and/or scout base may be present";
+			case 'C':
+				return "Routine quality installation.\n"
+						+ "Only unrefined fuel available. Reasonable repair facilities present. Scout base may be present.";
+			case 'D':
+				return "Poor quality installation.\n"
+						+ "Only unrefined fuel available. No repair or shipyard facilities present. Scout base may be present";
+			case 'E':
+				return "Frontier Installation.\n"
+						+ "Essentially a marked spot of bedrock with no fuel, facilities, or bases present";
+			case 'X':
+				return "No starport. No provision is made for any ship landings.";
+			}
+			return "ERROR02 - should never reach this";
 		}
 	}
-	
+
 }
