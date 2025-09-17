@@ -304,6 +304,8 @@ public class UWP {
 
 		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_Population(this.population));
 		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_LawLevel(this.lawLevel));
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_GovernmentType(this.governmentType));
+		uwpLibraryData.add(classicTravellerRules.LibraryData.uwp_TechnologicalLevel(this.technologicalLevel));
 
 		output += "\n \n Details :";
 		for (String ld : uwpLibraryData) {

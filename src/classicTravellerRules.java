@@ -371,6 +371,64 @@ public class classicTravellerRules {
 			return "ERROR04 - should never reach this";
 		}
 
+		public static String uwp_GovernmentType(int govType) {
+			switch(govType) {
+			case 0: return "No government structure. In many cases, family bonds predominate.";
+			case 1: return "Company/Corporation. Government by a company managerial elite; citizens "
+					+ "are company employees.";
+			case 2: return "Participating Democracy. Government by advice and consent of the citizen.";
+			case 3: return "Self-Perpetuating Oligarchy. Government by a restricted minority, with little "
+					+ "or no input from the masses.";
+			case 4: return "Representative Democracy. Government by elected representatives.";
+			case 5: return "Feudal Technocracy. Government by specific individuals for those who agree "
+					+ "to be ruled. Relationships are based on the performance of technical activities "
+					+ "which are mutually beneficial";
+			case 6: return "Captive Government. Government by a leadership answerable to an outside "
+					+ "group; a colony or conquered area.";
+			case 7: return " Balkanization. No central ruling authority exists; rival governments compete "
+					+ "for control.";
+			case 8: return " Civil Service Bureaucracy. Government by agencies employing individuals "
+					+ "selected for their expertise.";
+			case 9: return "Impersonal Bureaucracy. Government by agencies which are insulated from "
+					+ "the governed.";
+			case 10: return "Charismatic Dictator. Government by a single leader enjoying the confidence "
+					+ "of the citizens.";
+			case 11: return "Non-Charismatic Leader. A previous charismatic dictator has been replaced "
+					+ "by a leader through normal channels.";
+			case 12: return "Charismatic Oligarchy. Government by a select group, organization, or class "
+					+ "enjoying the overwhelming confidence of the citizenry.";
+			case 13: return "Religious Dictatorship. Government by a religious organization without "
+					+ "regard to the needs of the citizenry.";
+			}
+			return "Should never run";
+		}
+		
+		public static String uwp_TechnologicalLevel(int techLevel) {
+			String preamble = "Local industry produces goods equivalent to ";
+			switch(techLevel) {
+			case 0: return preamble+"Stone Age. Primitive tools only.";
+			case 1: return preamble+"Bronze Age to Middle Ages.";
+			case 2: return preamble+"circa 1400 to 1700 Terra.";
+			case 3: return preamble+"circa 1700 to 1860 Terra.";
+			case 4: return preamble+"circa 1860 to 1900 Terra.";
+			case 5: return preamble+"circa 1900 to 1939 Terra.";
+			case 6: return preamble+"circa 1940 to 1969 Terra.";
+			case 7: return preamble+"circa 1970 to 1979 Terra.";
+			case 8: return preamble+"circa 1980 to 1989 Terra.";
+			case 9: return preamble+"circa 1990 to 2000 Terra.";
+			case 10: return preamble+"Interstellar community.";
+			case 11: return preamble+"Average lmperial.";
+			case 12: return preamble+"Average lmperial.";
+			case 13: return preamble+"Above average lmperial.";
+			case 14: return preamble+"Above average lmperial.";
+			case 15: return preamble+"Technical maximum lmperial.";
+			case 16: return preamble+"Occasional non-Imperial.";
+			
+			}
+			
+			
+			return null;
+		}
 	}
 
 }
